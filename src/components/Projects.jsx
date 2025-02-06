@@ -2,7 +2,7 @@
 
 import React from "react";
 import blog from "../assets/blog.png";
-import chat from "../assets/chat.pnh"
+import chat from "../assets/chat.png"
 import { FaGithub } from "react-icons/fa";
 
 const Projects = () => {
