@@ -2,6 +2,7 @@
 
 import React from "react";
 import blog from "../assets/blog.png";
+import chat from "../assets/chat.pnh"
 import { FaGithub } from "react-icons/fa";
 
 const Projects = () => {
@@ -9,11 +10,20 @@ const Projects = () => {
     {
       title: "AI-Powered Blog",
       description:
-        "A platform to create, read, update, and delete blogs with user authentication and responsive design.",
+       "A platform to create, read, update, and delete blogs with user authentication and responsive design.",
       image: blog,
       live: "https://blog-1-3.onrender.com/",
       github: "https://github.com/SimranDangol/Blog-1",
       techStack: ["React", "Node.js", "Express", "MongoDB", "Shadcn ui"],
+    },
+    {
+      title: "Chat-Application",
+      description:
+      "A real-time chat application that allows users to send and receive messages instantly.",
+      image: chat,
+      live: "https://chat-app-1-vb3u.onrender.com/login",
+      github: "https://github.com/SimranDangol/Chat-App",
+      techStack: ["React", "Node.js", "Express", "MongoDB", "Shadcn ui","Socket-io"],
     },
   ];
 
