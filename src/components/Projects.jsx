@@ -2,7 +2,9 @@
 
 import React from "react";
 import blog from "../assets/blog.png";
-import chat from "../assets/chat.png"
+import chat from "../assets/chat.png";
+import jobPortal from "../assets/jobPortal.png";
+import socialMedia from "../assets/socialMedia.png";
 import { FaGithub } from "react-icons/fa";
 
 const Projects = () => {
@@ -10,20 +12,53 @@ const Projects = () => {
     {
       title: "AI-Powered Blog",
       description:
-       "A platform to create, read, update, and delete blogs with user authentication and responsive design.",
+        "A platform to create, read, update, and delete blogs with user authentication and responsive design.",
       image: blog,
-      live: "https://blog-1-3.onrender.com/",
+      live: "https://blog-g8f2.onrender.com/",
       github: "https://github.com/SimranDangol/Blog-1",
       techStack: ["React", "Node.js", "Express", "MongoDB", "Shadcn ui"],
     },
     {
       title: "Chat-Application",
       description:
-      "A real-time chat application that allows users to send and receive messages instantly.",
+        "A real-time chat application that allows users to send and receive messages instantly.",
       image: chat,
       live: "https://chat-app-1-vb3u.onrender.com/login",
       github: "https://github.com/SimranDangol/Chat-App",
-      techStack: ["React", "Node.js", "Express", "MongoDB", "Shadcn ui","Socket-io"],
+      techStack: [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Shadcn ui",
+        "Socket-io",
+      ],
+    },
+    {
+      title: "Job Portal Website",
+      description:
+        "A job portal platform with secure authentication, AI-powered job description generator, and responsive design.",
+      image: jobPortal,
+      live: "https://job-portal-7std.onrender.com/",
+      github: "https://github.com/SimranDangol/Job-Portal",
+      techStack: [
+        "React",
+        "Redux",
+        "TypeScript",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Tailwind CSS",
+      ],
+    },
+    {
+      title: "Social Media Application",
+      description:
+        "A full-featured social media platform with authentication, secure backend, and an interactive UI design.",
+      image: socialMedia,
+      live: "",
+      github: "https://github.com/SimranDangol/Socially",
+      techStack: ["Next.js", "Clerk", "PostgreSQL", "Prisma", "Tailwind CSS"],
     },
   ];
 
@@ -60,14 +95,16 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="flex gap-3">
-                  <a
-                    href={item.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block px-6 py-2 text-white transition-colors bg-blue-500 rounded-lg shadow-md hover:bg-blue-600"
-                  >
-                    View Project
-                  </a>
+                  {item.live && (
+                    <a
+                      href={item.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block px-6 py-2 text-white transition-colors bg-blue-500 rounded-lg shadow-md hover:bg-blue-600"
+                    >
+                      View Project
+                    </a>
+                  )}
                   <a
                     href={item.github}
                     target="_blank"

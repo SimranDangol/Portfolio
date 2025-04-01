@@ -10,6 +10,8 @@ import Bootstrap from "../assets/Bootstrap.png";
 import NodeLogo from "../assets/NodeLogo.png";
 import Mongodb from "../assets/mongodb.svg";
 import Express from "../assets/Express.png";
+import Next from "../assets/nextjs.svg";
+import Typescript from "../assets/typescript.svg";
 
 const About = () => {
   return (
@@ -44,12 +46,12 @@ const About = () => {
                   building interactive websites. I began with HTML, CSS, and
                   JavaScript, eventually mastering the MERN stack (MongoDB,
                   Express.js, React.js, Node.js). Along the way, I worked on
-                  projects like an Real Etate platform and a Blog Website
-                  gaining hands-on experience in creating responsive UIs and
-                  integrating APIs. With a passion for learning and solving
-                  real-world problems, I am excited to transition from a student
-                  to a professional developer, ready to contribute to impactful
-                  projects.
+                  projects like an Chat Application, Job Portal Website and a
+                  Blog Website, Social Media App gaininghands-on experience in
+                  creating responsive UIs and integrating APIs. With a passion
+                  for learning and solving real-world problems, I am excited to
+                  transition from a student to a professional developer, ready
+                  to contribute to impactful projects.
                 </p>
                 <img
                   src={MernStack}
@@ -75,8 +77,16 @@ const About = () => {
                     <span className="font-semibold">Javascript</span>
                   </div>
                   <div className="flex items-center gap-1 px-2 py-1 border border-red-300 rounded-lg shadow-md w-max shadow-red-300">
+                    <img src={Typescript} alt="" className="w-10" />
+                    <span className="font-semibold">Typescript</span>
+                  </div>
+                  <div className="flex items-center gap-1 px-2 py-1 border border-red-300 rounded-lg shadow-md w-max shadow-red-300">
                     <img src={ReactLogo} alt="" className="w-8 rounded-full" />
                     <span className="font-semibold">React</span>
+                  </div>
+                  <div className="flex items-center gap-1 px-2 py-1 border border-red-300 rounded-lg shadow-md w-max shadow-red-300">
+                    <img src={Next} alt="" className="w-10" />
+                    <span className="font-semibold">Next.js</span>
                   </div>
                   <div className="flex items-center gap-1 px-2 py-1 border border-red-300 rounded-lg shadow-md w-max shadow-red-300">
                     <img src={ReduxLogo} alt="" className="w-8" />

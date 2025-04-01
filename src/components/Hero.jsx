@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
-import React from 'react';
-import a from '../assets/a.png';
-import { HiMiniArrowDownTray } from 'react-icons/hi2';
+import React from "react";
+import a from "../assets/a.png";
+import { HiMiniArrowDownTray } from "react-icons/hi2";
 
 const Hero = () => {
   return (
@@ -18,12 +18,14 @@ const Hero = () => {
               I'm Simran <span className="text-red-500">Dangol</span>
             </h1>
             <p className="mb-4 text-xl md:text-2xl">
-              MERN Stack Enthusiast | Full Stack Developer
+              MERN Stack Enthusiast | Frontend Developer
             </p>
             <p className="mb-4">
-            I'm an aspiring web developer with a solid understanding of React, Node.js, Express, and modern web technologies. I enjoy creating engaging and functional websites that aim to address real-world challenges.
+              I'm an aspiring web developer with a solid understanding of React,
+              Next.js, Typescript, Node.js, Express, and modern web
+              technologies. I enjoy creating engaging and functional websites
+              that aim to address real-world challenges.
             </p>
-          
           </div>
           <div className="relative flex items-end justify-center md:w-1/2">
             <img src={a} alt="Hero" className="lg:h-[90vh] h-96" />
