@@ -11,8 +11,7 @@ import NodeLogo from "../assets/NodeLogo.png";
 import Mongodb from "../assets/mongodb.svg";
 import Express from "../assets/Express.png";
 import Next from "../assets/nextjs.svg";
-import Typescript from "../assets/typescript.svg";
-
+import Typescript from "../assets/typescript.png";
 
 const About = () => {
   return (
@@ -78,7 +77,7 @@ const About = () => {
                     <span className="font-semibold">Javascript</span>
                   </div>
                   <div className="flex items-center gap-1 px-2 py-1 border border-red-300 rounded-lg shadow-md w-max shadow-red-300">
-                    <img src={Typescript} alt="" className="w-10" />
+                    <img src={Typescript} alt="" className="w-14" />
                     <span className="font-semibold">Typescript</span>
                   </div>
                   <div className="flex items-center gap-1 px-2 py-1 border border-red-300 rounded-lg shadow-md w-max shadow-red-300">
