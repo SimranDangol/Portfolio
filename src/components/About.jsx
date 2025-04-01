@@ -11,7 +11,7 @@ import NodeLogo from "../assets/NodeLogo.png";
 import Mongodb from "../assets/mongodb.svg";
 import Express from "../assets/Express.png";
 import Next from "../assets/nextjs.svg";
-import Typescript from "../assets/typescript.svg";
+
 
 const About = () => {
   return (
