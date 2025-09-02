@@ -56,7 +56,7 @@ export const projectData: Project[] = [
     title: "JCI Arjundhara Website",
     description:
       "A dynamic organizational platform for JCI Arjundhara, showcasing events, membership management, and community initiatives.",
-    image: "/project1.png",
+    image: "/Project1.png",
     tech: ["Next.js", "React", "Tailwind CSS", "Node.js"],
     link: "https://jci.vercel.app/",
   },
