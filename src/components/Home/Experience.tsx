@@ -2,9 +2,25 @@
 
 const experiences = [
   {
+    company: "Infinity IT Solutions, Kathmandu",
+    role: "Full Stack Developer",
+    date: "Dec 2023 – November 2025",
+    details: [
+      "Developed and maintained scalable web applications using React.js and Next.js with component-based architecture",
+      "Built reusable UI components and implemented state management with Redux for maintainable and efficient code",
+      "Collaborated with backend developers to integrate REST APIs and ensure smooth data flow across applications",
+      "Implemented responsive designs and optimized user interfaces for cross-device compatibility",
+      "Conducted unit and integration testing to ensure frontend reliability and robust deployments",
+      "Improved website performance through code splitting, lazy loading, and optimized rendering",
+      "Ensured accessibility compliance and implemented user-friendly interface enhancements based on feedback",
+    ],
+    technologies: ["React.js", "Next.js", "Redux", "Tailwind CSS"],
+    link: "#",
+  },
+  {
     company: "Metalogic Software PVT.LTD, KATHMANDU",
-    role: "Full Stack Developer (MERN)",
-    date: "Feb 2025 - August 2025",
+    role: "Full Stack Developer Intern",
+    date: "September 2023 - December 2023",
     details: [
       "Developed a scalable CMS Platform with multilingual support and role-based access control using Next.js and Tailwind CSS",
       "Developed a Restaurant POS System with real-time tracking, QR-based table management, and online ordering",
@@ -25,22 +41,6 @@ const experiences = [
       "Chart.js",
       "Git",
     ],
-    link: "#",
-  },
-  {
-    company: "Infinity IT Solutions, Kathmandu",
-    role: "Frontend Developer",
-    date: "May 2024 – Dec 2024",
-    details: [
-      "Developed and maintained scalable web applications using React.js and Next.js with component-based architecture",
-      "Built reusable UI components and implemented state management with Redux for maintainable and efficient code",
-      "Collaborated with backend developers to integrate REST APIs and ensure smooth data flow across applications",
-      "Implemented responsive designs and optimized user interfaces for cross-device compatibility",
-      "Conducted unit and integration testing to ensure frontend reliability and robust deployments",
-      "Improved website performance through code splitting, lazy loading, and optimized rendering",
-      "Ensured accessibility compliance and implemented user-friendly interface enhancements based on feedback",
-    ],
-    technologies: ["React.js", "Next.js", "Redux", "Tailwind CSS"],
     link: "#",
   },
 ];

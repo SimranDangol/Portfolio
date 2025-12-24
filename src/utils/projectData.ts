@@ -5,17 +5,17 @@ export const projectData: Project[] = [
     description:
       "A digital platform for managing and publishing government notices, circulars, and official documents.",
     image: "/Project4.png",
-    tech: ["Next.js", "Node.js", "Tailwind CSS", "MongoDB"],
+    tech: ["Next.js", "Node.js", "Tailwind CSS", "PostgreSQL"],
     link: "https://rajpatra.vercel.app/",
   },
   {
     id: 2,
-    title: "JJ Human Resource Pvt. Ltd.",
+    title: "Velocit – Rental Platform",
     description:
-      "A comprehensive HR management platform for recruitment, employee records, payroll, and performance tracking.",
-    image: "/Project3.png",
-    tech: ["Next.js", "React", "Tailwind CSS", "Node.js", "PostgreSQL"],
-    link: "https://jjhumanresource.com",
+      "A modern rental platform for browsing, booking, and managing rental properties with a clean UI and responsive design.",
+    image: "/Project8.png",
+    tech: ["React", "Tailwind CSS", "Node.js", "MongoDB"],
+    link: "https://www.velocit.me/",
   },
   {
     id: 3,
@@ -59,5 +59,14 @@ export const projectData: Project[] = [
     image: "/Project1.png",
     tech: ["Next.js", "React", "Tailwind CSS", "Node.js"],
     link: "https://jci.vercel.app/",
+  },
+  {
+    id: 7,
+    title: "Nepal Road Map Visualization",
+    description:
+      "An interactive map-based visualization of Nepal’s national highways, feeder roads, and city road networks for better geographic insight.",
+    image: "/Project9.png",
+    tech: ["React", "Map Visualization"],
+    link: "https://np-road-map.vercel.app/",
   },
 ];

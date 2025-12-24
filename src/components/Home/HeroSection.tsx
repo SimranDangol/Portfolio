@@ -86,7 +86,7 @@ export default function Home() {
               asChild
             >
               <a
-                href="/Simran_Resume.pdf"
+                href="/Simran_CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
