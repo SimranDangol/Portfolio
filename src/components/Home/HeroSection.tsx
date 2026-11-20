@@ -1,141 +1,101 @@
 "use client";
 
-import { useEffect, useState, useMemo } from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Github, Linkedin } from "lucide-react";
+import { motion } from "framer-motion";
+import { Github, Linkedin, ArrowRight } from "lucide-react";
 
-export default function Home() {
-  const titles = useMemo(
-    () => ["Full Stack Developer", "Frontend Developer", "Backend Developer"],
-    []
-  );
-  const [displayText, setDisplayText] = useState<string>("");
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [currentTitleIndex, setCurrentTitleIndex] = useState<number>(0);
-  const [isTyping, setIsTyping] = useState<boolean>(true);
+const fade = (delay = 0) => ({
+  initial: { opacity: 0, y: 16 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5, delay },
+});
 
-  useEffect(() => {
-    let timeout: NodeJS.Timeout;
-
-    if (isTyping) {
-      if (currentIndex < titles[currentTitleIndex].length) {
-        timeout = setTimeout(() => {
-          setDisplayText(
-            titles[currentTitleIndex].substring(0, currentIndex + 1)
-          );
-          setCurrentIndex(currentIndex + 1);
-        }, 100);
-      } else {
-        timeout = setTimeout(() => setIsTyping(false), 1000);
-      }
-    } else {
-      if (currentIndex > 0) {
-        timeout = setTimeout(() => {
-          setDisplayText(
-            titles[currentTitleIndex].substring(0, currentIndex - 1)
-          );
-          setCurrentIndex(currentIndex - 1);
-        }, 50);
-      } else {
-        setCurrentTitleIndex((currentTitleIndex + 1) % titles.length);
-        setIsTyping(true);
-      }
-    }
-
-    return () => clearTimeout(timeout);
-  }, [currentIndex, isTyping, currentTitleIndex, titles]);
-
+export default function HeroSection() {
   return (
     <div
       id="home"
-      className="min-h-screen pt-24 bg-gradient-to-br from-slate-950 via-cyan-950 to-slate-900"
+      className="min-h-screen bg-zinc-950 flex flex-col items-center justify-center px-6 text-center"
     >
-      <section className="relative flex flex-col items-center justify-center min-h-screen px-4 text-center">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-6">
-            <span className="flex items-center justify-center gap-2 text-lg font-light text-cyan-400">
-              <Sparkles size={16} className="animate-pulse" />
-              Hey there, I&apos;m
-              <Sparkles size={16} className="animate-pulse" />
-            </span>
-          </div>
+      <div className="max-w-2xl w-full space-y-6">
+        {/* Status */}
+        <motion.div {...fade(0)} className="flex justify-center">
+          <span className="inline-flex items-center gap-2 px-3 py-1 text-xs rounded-md bg-zinc-900 border border-zinc-800 text-zinc-400">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
+            Available for work
+          </span>
+        </motion.div>
 
-          <h1 className="relative mb-6 text-5xl font-extrabold md:text-7xl">
-            <span className="text-white drop-shadow-[0_0_15px_rgba(34,211,238,0.7)]">
-              Simran Dangol
-            </span>
-          </h1>
+        {/* Name */}
+        <motion.h1
+          {...fade(0.08)}
+          className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-zinc-50"
+        >
+          Simran Dangol
+        </motion.h1>
 
-          <div className="flex items-center justify-center h-12 mb-6">
-            <h2 className="font-mono text-xl md:text-2xl text-cyan-300">
-              {displayText}
-              <span className="inline-block w-1 h-6 ml-1 bg-cyan-400 animate-pulse"></span>
-            </h2>
-          </div>
+        {/* Role */}
+        <motion.p
+          {...fade(0.14)}
+          className="text-lg sm:text-xl text-zinc-400 font-normal"
+        >
+          Full Stack Developer &amp; AI Systems Engineer
+        </motion.p>
 
-          <p className="max-w-2xl mx-auto mb-10 text-lg leading-relaxed text-gray-300">
-            &ldquo;Turning ideas into smooth, interactive web experiences.
-            Crafting modern, engaging, and responsive websites. Building
-            seamless digital journeys, one line of code at a time.&quot;
-          </p>
+        {/* Bio */}
+        <motion.p
+          {...fade(0.2)}
+          className="text-zinc-500 text-base leading-relaxed max-w-lg mx-auto"
+        >
+          I build high-performance web applications and AI-driven platforms.
+          Currently at PlayCV.ai — focused on scalable architecture, real-time
+          systems, and clean engineering.
+        </motion.p>
 
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button
-              size="lg"
-              className="px-8 py-6 text-lg font-semibold text-white transition-all rounded-full shadow-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-blue-600 hover:to-cyan-500 shadow-cyan-500/30 hover:shadow-cyan-400/40 hover:scale-105"
-              asChild
-            >
-              <a
-                href="/Simran_CV.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
-              >
-                See Resume
-              </a>
-            </Button>
+        {/* Buttons */}
+        <motion.div
+          {...fade(0.26)}
+          className="flex flex-col sm:flex-row items-center justify-center gap-3"
+        >
+          <a
+            href="/Simran_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-zinc-50 text-zinc-950 hover:bg-zinc-200 font-medium px-5 py-2.5 rounded-md text-sm transition-colors"
+          >
+            View Resume
+          </a>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-1.5 border border-zinc-700 text-zinc-400 hover:text-zinc-100 hover:border-zinc-500 px-5 py-2.5 rounded-md text-sm transition-colors"
+          >
+            Get in Touch <ArrowRight size={14} />
+          </a>
+        </motion.div>
 
-            <Button
-              size="lg"
-              className="px-8 py-6 text-lg transition-all border-2 rounded-full border-cyan-400 text-cyan-300 hover:bg-cyan-400 hover:text-black hover:scale-105"
-              asChild
-            >
-              <a href="#contact" className="flex items-center gap-2">
-                Let&apos;s Connect <ArrowRight size={20} />
-              </a>
-            </Button>
-          </div>
-
-          <div className="flex items-center justify-center gap-4 mt-6">
-            <a
-              href="https://github.com/SimranDangol"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 transition-all border rounded-full border-cyan-500/30 text-cyan-300 hover:text-white hover:bg-cyan-500/20"
-              aria-label="GitHub"
-            >
-              <Github size={24} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/simran-dangol"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 transition-all border rounded-full border-cyan-500/30 text-cyan-300 hover:text-white hover:bg-cyan-500/20"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={24} />
-            </a>
-          </div>
-        </div>
-
-        <div className="absolute hidden transform -translate-x-1/2 bottom-20 left-1/2 sm:block">
-          <div className="animate-bounce">
-            <div className="flex justify-center w-6 h-10 border-2 rounded-full border-cyan-400">
-              <div className="w-1 h-3 mt-2 rounded-full bg-cyan-400"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+        {/* Socials */}
+        <motion.div
+          {...fade(0.32)}
+          className="flex items-center justify-center gap-4 pt-2"
+        >
+          <a
+            href="https://github.com/SimranDangol"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="text-zinc-600 hover:text-zinc-300 transition-colors p-1"
+          >
+            <Github size={20} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/simran-dangol"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="text-zinc-600 hover:text-zinc-300 transition-colors p-1"
+          >
+            <Linkedin size={20} />
+          </a>
+        </motion.div>
+      </div>
     </div>
   );
 }

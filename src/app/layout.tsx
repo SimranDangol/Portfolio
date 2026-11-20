@@ -18,9 +18,27 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Simran Dangol",
+  title: "Simran Dangol | Full Stack Developer",
   description:
-    "Personal portfolio showcasing my projects, skills, and experience as a Full Stack Developer.",
+    "Portfolio of Simran Dangol - Full Stack Developer & AI Systems Engineer at PlayCV.ai. Specializing in Next.js, React, TypeScript, Node.js, and scalable web architectures.",
+  keywords: [
+    "Simran Dangol",
+    "Full Stack Developer",
+    "Software Engineer",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Node.js",
+    "PlayCV.ai",
+    "Portfolio",
+  ],
+  authors: [{ name: "Simran Dangol" }],
+  openGraph: {
+    title: "Simran Dangol | Full Stack Developer",
+    description:
+      "Full Stack Developer & AI Systems Engineer at PlayCV.ai building high-performance web systems and AI applications with Next.js, TypeScript, and Node.js.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -29,15 +47,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased bg-zinc-950 text-zinc-100 selection:bg-zinc-800 selection:text-zinc-100`}
       >
         <ThemeProvider>
           <Providers>
             <Navbar />
             {children}
-            <Toaster richColors position="top-right" />
+            <Toaster richColors position="top-right" theme="dark" />
           </Providers>
         </ThemeProvider>
       </body>

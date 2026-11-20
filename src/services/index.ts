@@ -1,14 +1,7 @@
 import axios, { AxiosError } from "axios";
 
-const BASE_API_URL =
-  process.env.NEXT_PUBLIC_BASE_URL ||
-  (process.env.NODE_ENV === "production"
-    ? "https://simran-dangol.vercel.app/api"
-    : "http://localhost:3000/api");
-
-if (!BASE_API_URL) {
-  throw new Error("BASE_URL is not defined");
-}
+// Using relative '/api' allows seamless API calls across local dev, preview branches, and production deployments
+const BASE_API_URL = process.env.NEXT_PUBLIC_BASE_URL || "/api";
 
 export const api = axios.create({
   baseURL: BASE_API_URL,
@@ -18,7 +11,9 @@ export const api = axios.create({
 export const handleApiError = (error: AxiosError | Error): Error => {
   if (axios.isAxiosError(error)) {
     const message =
-      error.response?.data?.message || "An error occurred on the server";
+      error.response?.data?.message ||
+      error.response?.data?.error ||
+      "An error occurred on the server";
     return new Error(message);
   }
 

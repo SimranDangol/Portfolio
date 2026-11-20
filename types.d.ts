@@ -1,13 +1,15 @@
-interface Project {
+export interface Project {
   id: number;
   title: string;
   description: string;
   image: string;
   tech: string[];
   link: string;
+  github?: string;
+  category?: string;
 }
 
-interface Contact {
+export interface Contact {
   _id: string;
   fullName: string;
   subject: string;

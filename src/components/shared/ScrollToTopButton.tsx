@@ -13,12 +13,11 @@ const ScrollToTopButton = () => {
   return (
     <button
       onClick={scrollToTop}
-      className="flex flex-col items-center gap-2 text-gray-300 transition-colors hover:text-white group"
+      className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-500 hover:text-zinc-200 transition-colors"
+      aria-label="Scroll to top"
     >
-      <div className="flex items-center justify-center w-12 h-12 transition-colors border-2 border-gray-600 rounded-full group-hover:border-white">
-        <ArrowUp size={20} />
-      </div>
-      <span className="text-sm">Scroll to Top</span>
+      <ArrowUp size={14} />
+      <span>Top</span>
     </button>
   );
 };

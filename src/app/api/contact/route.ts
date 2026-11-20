@@ -4,6 +4,8 @@ import { mail } from "@/utils/createMail";
 import transporter from "@/utils/createTransporter";
 import { NextRequest, NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(req: NextRequest) {
   try {
     await connectDB();
@@ -32,14 +34,13 @@ export async function POST(req: NextRequest) {
       await transporter.sendMail({
         from: process.env.EMAIL_USER,
         to: email,
-        subject: "✅ Thanks for contacting me!",
+        subject: "Thanks for contacting me!",
         text: `Hi ${fullName},\n\nThank you for reaching out! I have received your message:\n\n"${message}"\n\nI'll get back to you as soon as possible.\n\nBest regards,\nSimran Dangol`,
       });
 
       console.log("Both emails sent successfully");
     } catch (emailError) {
       console.error("Email sending error:", emailError);
-      // Still save the contact but inform about email issue
       return NextResponse.json(
         {
           success: true,
@@ -50,7 +51,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Send response AFTER emails are sent
     return NextResponse.json({ success: true, contact }, { status: 201 });
   } catch (error) {
     console.error("Contact form error:", error);
