@@ -1,5 +1,5 @@
-import About from "@/components/Home/About";
 import Contact from "@/components/Home/Contact";
+import Education from "@/components/Home/Education";
 import Experience from "@/components/Home/Experience";
 import Footer from "@/components/Home/Footer";
 import Home from "@/components/Home/HeroSection";
@@ -9,15 +9,15 @@ import React from "react";
 
 const page = () => {
   return (
-    <div>
+    <main>
       <Home />
-      <About />
-      <Skill />
       <Experience />
       <Projects />
+      <Skill />
+      <Education />
       <Contact />
       <Footer />
-    </div>
+    </main>
   );
 };
 
