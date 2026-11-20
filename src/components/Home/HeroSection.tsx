@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, ArrowRight } from "lucide-react";
+import { Github, Linkedin, ArrowRight, ArrowUpRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
@@ -10,7 +10,7 @@ export default function HeroSection() {
       className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col justify-center pt-28 pb-20 px-6"
     >
       <div className="max-w-5xl w-full mx-auto text-left">
-        {/* Top small meta badge */}
+        {/* Top meta badge */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -19,7 +19,7 @@ export default function HeroSection() {
         >
           <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse flex-shrink-0" />
           <span className="font-mono text-xs tracking-widest uppercase text-zinc-400">
-            FULL STACK DEVELOPER — KATHMANDU, NEPAL
+            FULL STACK DEVELOPER &mdash; KATHMANDU, NEPAL
           </span>
         </motion.div>
 
@@ -36,16 +36,29 @@ export default function HeroSection() {
         </motion.h1>
 
         {/* Sub-description */}
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.16 }}
-          className="mt-8 text-base sm:text-lg text-zinc-400 max-w-2xl leading-relaxed font-normal"
+          className="mt-8 space-y-2 text-base sm:text-lg text-zinc-400 max-w-2xl leading-relaxed font-normal"
         >
-          I work across the whole stack — and love taking full ownership of the
-          product from level 0. Currently building AI-driven career platforms at{" "}
-          <span className="text-zinc-200 font-medium">PlayCV.ai</span>.
-        </motion.p>
+          <p>
+            I work across the whole stack &mdash; and love taking full ownership
+            of the product from level 0.
+          </p>
+          <p className="text-sm sm:text-base text-zinc-400 flex items-center flex-wrap gap-1.5 pt-1">
+            <span>Currently engineering full-stack web products and AI systems at</span>
+            <a
+              href="https://playcv.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-100 hover:text-white underline underline-offset-4 decoration-zinc-700 hover:decoration-zinc-400 transition-colors inline-flex items-center gap-0.5 font-medium"
+            >
+              PlayCV.ai
+              <ArrowUpRight size={14} className="text-zinc-500" />
+            </a>
+          </p>
+        </motion.div>
 
         {/* Action buttons & socials */}
         <motion.div
