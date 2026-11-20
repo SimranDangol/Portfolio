@@ -2,80 +2,120 @@
 
 import { motion } from "framer-motion";
 
-interface SkillCategory {
-  title: string;
-  skills: string[];
+interface SkillGroup {
+  category: string;
+  items: string[];
 }
 
-const skillCategories: SkillCategory[] = [
+const skillGroups: SkillGroup[] = [
   {
-    title: "Frontend",
-    skills: ["React.js", "Next.js (App Router)", "TypeScript", "Tailwind CSS", "Redux Toolkit", "React Query", "Zustand", "Framer Motion", "HTML5 / CSS3"],
+    category: "AI & Agentic Systems",
+    items: [
+      "LangGraph",
+      "LangChain",
+      "Multi-Agent Architectures",
+      "RAG Pipelines",
+      "Pinecone",
+      "Tool Calling",
+      "Prompt Engineering",
+      "LLM APIs",
+    ],
   },
   {
-    title: "Backend & APIs",
-    skills: ["Node.js", "Express.js", "RESTful APIs", "Socket.IO", "Server Actions", "JWT & Auth Systems", "AI / LLM Integrations", "Microservices"],
+    category: "Full Stack Architecture",
+    items: [
+      "Next.js",
+      "React.js",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "WebSockets",
+      "Tailwind CSS",
+      "Redux Toolkit",
+    ],
   },
   {
-    title: "Databases & ORMs",
-    skills: ["PostgreSQL", "MongoDB", "Prisma ORM", "Mongoose", "Redis Caching", "Database Modeling", "Query Optimization"],
+    category: "Databases & DevOps",
+    items: [
+      "PostgreSQL",
+      "MongoDB",
+      "Prisma ORM",
+      "Redis",
+      "Docker",
+      "CI/CD",
+    ],
   },
   {
-    title: "DevOps & Tools",
-    skills: ["Git & GitHub", "Docker", "Vercel", "Render", "CI/CD Basics", "Postman", "Linux / Bash"],
-  },
-  {
-    title: "Engineering",
-    skills: ["System Design", "Component Architecture", "Performance (Core Web Vitals)", "SEO & Accessibility", "Unit & Integration Testing", "Code Reviews"],
-  },
-  {
-    title: "Collaboration",
-    skills: ["Agile & Scrum", "Cross-functional Teamwork", "Product-driven Execution", "Technical Problem Solving", "Clear Documentation"],
+    category: "Soft Skills & Practices",
+    items: [
+      "End-to-End Ownership",
+      "Technical Communication",
+      "Product Mindset",
+      "Cross-Functional Teamwork",
+      "Agile & Scrum",
+      "Fast Prototyping",
+      "Code Reviews",
+    ],
   },
 ];
 
 export default function SkillsSection() {
   return (
-    <motion.section
+    <section
       id="skills"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="bg-zinc-950 border-t border-zinc-800 py-24 px-6"
+      className="bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 pt-12 pb-14 sm:pt-16 sm:pb-16 px-6 sm:px-10"
     >
       <div className="max-w-5xl mx-auto">
-        {/* Header */}
-        <div className="mb-12">
-          <p className="text-xs uppercase tracking-widest font-mono text-zinc-600">
-            Skills
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5 }}
+          className="mb-8 sm:mb-10"
+        >
+          <p className="text-xs uppercase tracking-widest font-mono text-zinc-500 dark:text-zinc-400">
+            Capabilities
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-zinc-50 mt-2">
-            Technical Stack
+          <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-50 mt-2">
+            Technical Stack & Practices
           </h2>
-        </div>
+        </motion.div>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-x-16 gap-y-10">
-          {skillCategories.map((cat) => (
-            <div key={cat.title}>
-              <p className="text-xs uppercase tracking-widest font-mono text-zinc-600 mb-3">
-                {cat.title}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {cat.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="text-sm text-zinc-300 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 px-3 py-1 rounded-md transition-colors"
-                  >
-                    {skill}
-                  </span>
-                ))}
+        <div className="divide-y divide-zinc-200 dark:divide-zinc-800/80 border-t border-zinc-200 dark:border-zinc-800/80">
+          {skillGroups.map((group, index) => (
+            <motion.div
+              key={group.category}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.45, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="py-5 sm:py-6 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-6 items-baseline"
+            >
+              <div className="md:col-span-3">
+                <span className="font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400 font-medium whitespace-nowrap">
+                  {group.category}
+                </span>
               </div>
-            </div>
+              <div className="md:col-span-9">
+                <p className="text-sm sm:text-[15px] text-zinc-700 dark:text-zinc-300 leading-relaxed font-sans">
+                  {group.items.map((item, i) => (
+                    <span key={item}>
+                      <span className="text-zinc-800 dark:text-zinc-200 hover:text-zinc-950 dark:hover:text-white transition-colors">
+                        {item}
+                      </span>
+                      {i < group.items.length - 1 && (
+                        <span className="text-zinc-400 dark:text-zinc-600 mx-2.5 select-none font-mono text-xs">
+                          &bull;
+                        </span>
+                      )}
+                    </span>
+                  ))}
+                </p>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

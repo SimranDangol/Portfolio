@@ -1,14 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
 
 interface ExperienceItem {
   company: string;
   role: string;
   date: string;
   current?: boolean;
-  link?: string;
   details: string[];
   technologies: string[];
 }
@@ -19,15 +17,21 @@ const experiences: ExperienceItem[] = [
     role: "Full Stack Developer",
     date: "Dec 2025 - Present",
     current: true,
-    link: "https://playcv.ai",
     details: [
-      "Architecting and scaling core features for an AI-powered career platform with Next.js, TypeScript, and modern full-stack workflows.",
-      "Building high-performance interactive resume & portfolio builders with dynamic form workflows, real-time preview, and PDF rendering.",
-      "Integrating AI services and LLM endpoints for intelligent content generation, automated CV parsing, and instant suggestions.",
-      "Optimizing web performance, client-side caching, and API response times to ensure smooth user interactions.",
-      "Collaborating closely with cross-functional teams to iterate on product features, onboarding UX, and analytics instrumentation.",
+      "Architected and built a multi-tenant AI SaaS platform serving individual users and organizations.",
+      "Developed real-time AI simulations and conversational agents using voice streaming, avatars, and WebSockets.",
+      "Integrated subscription billing, payment workflows, usage quotas, and account management.",
+      "Implemented automated scoring engines and dynamic report generation for user performance analytics.",
+      "Wrote unit and integration test suites with Vitest to maintain high reliability across critical business flows.",
     ],
-    technologies: ["Next.js", "React", "TypeScript", "Node.js", "Tailwind CSS", "AI Integrations", "REST APIs"],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "OpenAI",
+      "WebSocket",
+      "Vitest",
+    ],
   },
   {
     company: "Infinity IT Solutions",
@@ -35,13 +39,19 @@ const experiences: ExperienceItem[] = [
     date: "Dec 2023 - Nov 2025",
     current: false,
     details: [
-      "Engineered and maintained production web applications using React.js and Next.js with modular, scalable component architectures.",
-      "Implemented state management with Redux and React Query to handle complex client-side caching and asynchronous state.",
-      "Collaborated on designing RESTful APIs and seamless data integration layers with backend services.",
-      "Improved frontend performance through code splitting, image optimization, lazy loading, and core web vitals fine-tuning.",
-      "Conducted code reviews, unit testing, and ensured strict cross-browser compatibility and web accessibility standards.",
+      "Engineered responsive, production-ready web applications using Next.js, React, and TypeScript with reusable component architectures.",
+      "Designed efficient client-side caching and state synchronization using React Query and Redux Toolkit, reducing redundant network requests.",
+      "Implemented secure JWT authentication, role-based access control (RBAC), and RESTful API integrations with Node.js backends.",
+      "Optimized frontend performance and Core Web Vitals through dynamic code-splitting, lazy loading, and asset optimization.",
     ],
-    technologies: ["React.js", "Next.js", "TypeScript", "Redux", "Node.js", "Tailwind CSS", "REST APIs"],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Node.js",
+      "Redux Toolkit",
+      "Tailwind CSS",
+    ],
   },
   {
     company: "Metalogic Software PVT. LTD",
@@ -49,13 +59,19 @@ const experiences: ExperienceItem[] = [
     date: "Sep 2023 - Dec 2023",
     current: false,
     details: [
-      "Developed a scalable CMS platform with multilingual support and role-based access control (RBAC) using Next.js and Tailwind CSS.",
-      "Built key modules for a Restaurant POS system featuring real-time table tracking, QR ordering, and live inventory management.",
-      "Implemented Socket.IO for real-time order notifications and instant table status synchronizations.",
-      "Designed interactive analytics dashboards with Chart.js and optimized database queries with MongoDB indexing.",
-      "Worked in Agile/Scrum sprints utilizing Git for collaborative version control and deployment pipelines.",
+      "Built responsive CMS modules featuring multilingual localization and role-based access control (RBAC) using React.",
+      "Engineered core modules for a Restaurant POS system, including live table management and dynamic QR-ordering workflows.",
+      "Implemented Socket.IO WebSockets for real-time kitchen order alerts and instant status synchronization across devices.",
+      "Constructed interactive data dashboards with Chart.js and optimized database response times using MongoDB indexing.",
     ],
-    technologies: ["React.js", "Next.js", "Node.js", "MongoDB", "Express", "Socket.IO", "JWT Authentication", "Git"],
+    technologies: [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Socket.IO",
+      "Chart.js",
+    ],
   },
 ];
 
@@ -63,84 +79,68 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="bg-zinc-950 border-t border-zinc-800 py-24 px-6"
+      className="bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 pt-12 pb-20 sm:pt-16 sm:pb-24 px-6 sm:px-10"
     >
-      <div className="max-w-3xl mx-auto">
-        {/* Header */}
-        <div className="mb-14">
-          <p className="text-xs uppercase tracking-widest font-mono text-zinc-600">
+      <div className="max-w-5xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5 }}
+          className="mb-8 sm:mb-10"
+        >
+          <p className="text-xs uppercase tracking-widest font-mono text-zinc-500 dark:text-zinc-400">
             Experience
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-zinc-50 mt-2">
+          <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-50 mt-2">
             Work History
           </h2>
-        </div>
+        </motion.div>
 
-        {/* Timeline */}
-        <div className="relative border-l border-zinc-800 pl-8 space-y-12">
+        <div className="relative border-l border-zinc-200 dark:border-zinc-800 pl-8 space-y-12 max-w-3xl">
           {experiences.map((exp, i) => (
             <motion.div
               key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="relative"
-              initial={{ opacity: 0, x: -12 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
             >
-              {/* Timeline dot */}
               <span
-                className={`absolute -left-[33px] top-1.5 w-3 h-3 rounded-full border bg-zinc-900 ${
-                  exp.current ? "border-emerald-700" : "border-zinc-700"
+                className={`absolute -left-[39px] top-1.5 w-3.5 h-3.5 rounded-full border ${
+                  exp.current
+                    ? "border-emerald-400 bg-emerald-500 ring-4 ring-emerald-500/20"
+                    : "border-zinc-400 bg-zinc-200 dark:border-zinc-500 dark:bg-zinc-800"
                 }`}
               />
 
-              {/* Company + link */}
-              <div className="flex items-center gap-2 flex-wrap">
-                <h3 className="text-lg font-semibold text-zinc-50">
-                  {exp.company}
-                </h3>
-                {exp.link && (
-                  <a
-                    href={exp.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-zinc-600 hover:text-zinc-400 transition-colors"
-                    aria-label={`Visit ${exp.company}`}
-                  >
-                    <ExternalLink size={13} />
-                  </a>
-                )}
-              </div>
+              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
+                {exp.company}
+              </h3>
 
-              {/* Role */}
-              <p className="text-sm text-zinc-400 mt-0.5">{exp.role}</p>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-0.5">{exp.role}</p>
 
-              {/* Date */}
-              <p className="font-mono text-xs text-zinc-600 mt-1">
-                {exp.current && (
-                  <span className="text-emerald-500 mr-2">current</span>
-                )}
+              <p className="font-mono text-xs text-zinc-500 dark:text-zinc-400 mt-1">
                 {exp.date}
               </p>
 
-              {/* Bullets */}
               <ul className="mt-4 space-y-2">
                 {exp.details.map((point, idx) => (
                   <li key={idx} className="flex items-start gap-2">
-                    <span className="w-1 h-1 rounded-full bg-zinc-700 mt-2 flex-shrink-0" />
-                    <span className="text-sm text-zinc-400 leading-relaxed">
+                    <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500 mt-2 flex-shrink-0" />
+                    <span className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
                       {point}
                     </span>
                   </li>
                 ))}
               </ul>
 
-              {/* Tech tags */}
-              <div className="mt-4 flex flex-wrap gap-1.5">
+              <div className="mt-4 flex flex-wrap gap-2">
                 {exp.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="font-mono text-xs text-zinc-500 border border-zinc-800 rounded px-2 py-0.5 bg-zinc-900"
+                    className="text-xs text-zinc-700 dark:text-zinc-300 font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-700 px-2.5 py-1 rounded-full transition-colors"
                   >
                     {tech}
                   </span>
