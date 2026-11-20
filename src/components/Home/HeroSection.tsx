@@ -3,99 +3,96 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, ArrowRight } from "lucide-react";
 
-const fade = (delay = 0) => ({
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5, delay },
-});
-
 export default function HeroSection() {
   return (
-    <div
+    <section
       id="home"
-      className="min-h-screen bg-zinc-950 flex flex-col items-center justify-center px-6 text-center"
+      className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col justify-center pt-28 pb-20 px-6"
     >
-      <div className="max-w-2xl w-full space-y-6">
-        {/* Status */}
-        <motion.div {...fade(0)} className="flex justify-center">
-          <span className="inline-flex items-center gap-2 px-3 py-1 text-xs rounded-md bg-zinc-900 border border-zinc-800 text-zinc-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
-            Available for work
+      <div className="max-w-5xl w-full mx-auto text-left">
+        {/* Top small meta badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="flex items-center gap-2 mb-8"
+        >
+          <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse flex-shrink-0" />
+          <span className="font-mono text-xs tracking-widest uppercase text-zinc-400">
+            FULL STACK DEVELOPER — KATHMANDU, NEPAL
           </span>
         </motion.div>
 
-        {/* Name */}
+        {/* Big Bold Headline */}
         <motion.h1
-          {...fade(0.08)}
-          className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-zinc-50"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.08 }}
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-zinc-50 leading-[1.06]"
         >
-          Simran Dangol
+          I design and build <br />
+          web products, <br />
+          <span className="text-zinc-500">from the</span> ground up.
         </motion.h1>
 
-        {/* Role */}
+        {/* Sub-description */}
         <motion.p
-          {...fade(0.14)}
-          className="text-lg sm:text-xl text-zinc-400 font-normal"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.16 }}
+          className="mt-8 text-base sm:text-lg text-zinc-400 max-w-2xl leading-relaxed font-normal"
         >
-          Full Stack Developer &amp; AI Systems Engineer
+          I work across the whole stack — and love taking full ownership of the
+          product from level 0. Currently building AI-driven career platforms at{" "}
+          <span className="text-zinc-200 font-medium">PlayCV.ai</span>.
         </motion.p>
 
-        {/* Bio */}
-        <motion.p
-          {...fade(0.2)}
-          className="text-zinc-500 text-base leading-relaxed max-w-lg mx-auto"
-        >
-          I build high-performance web applications and AI-driven platforms.
-          Currently at PlayCV.ai — focused on scalable architecture, real-time
-          systems, and clean engineering.
-        </motion.p>
-
-        {/* Buttons */}
+        {/* Action buttons & socials */}
         <motion.div
-          {...fade(0.26)}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.24 }}
+          className="mt-10 flex flex-wrap items-center gap-4"
         >
+          <a
+            href="#projects"
+            className="inline-flex items-center gap-2 bg-zinc-100 text-zinc-950 hover:bg-zinc-300 font-medium px-5 py-2.5 rounded-md text-sm transition-colors"
+          >
+            <span>See my work</span>
+            <ArrowRight size={14} />
+          </a>
+
           <a
             href="/Simran_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-zinc-50 text-zinc-950 hover:bg-zinc-200 font-medium px-5 py-2.5 rounded-md text-sm transition-colors"
+            className="inline-flex items-center gap-1.5 border border-zinc-800 text-zinc-400 hover:text-zinc-100 hover:border-zinc-600 px-5 py-2.5 rounded-md text-sm transition-colors"
           >
-            View Resume
+            <span>Resume</span>
           </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-1.5 border border-zinc-700 text-zinc-400 hover:text-zinc-100 hover:border-zinc-500 px-5 py-2.5 rounded-md text-sm transition-colors"
-          >
-            Get in Touch <ArrowRight size={14} />
-          </a>
-        </motion.div>
 
-        {/* Socials */}
-        <motion.div
-          {...fade(0.32)}
-          className="flex items-center justify-center gap-4 pt-2"
-        >
-          <a
-            href="https://github.com/SimranDangol"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="text-zinc-600 hover:text-zinc-300 transition-colors p-1"
-          >
-            <Github size={20} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/simran-dangol"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="text-zinc-600 hover:text-zinc-300 transition-colors p-1"
-          >
-            <Linkedin size={20} />
-          </a>
+          <div className="flex items-center gap-3 ml-2 pl-3 border-l border-zinc-800">
+            <a
+              href="https://github.com/SimranDangol"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-zinc-500 hover:text-zinc-200 transition-colors p-1"
+            >
+              <Github size={18} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/simran-dangol"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="text-zinc-500 hover:text-zinc-200 transition-colors p-1"
+            >
+              <Linkedin size={18} />
+            </a>
+          </div>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 }
