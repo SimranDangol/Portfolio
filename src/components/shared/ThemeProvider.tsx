@@ -8,10 +8,11 @@ export function ThemeProvider({
   ...props
 }: React.ComponentProps<typeof NextThemesProvider>) {
   return (
-    <NextThemesProvider {...props} attribute="class">
-      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-cyan-950 to-slate-900">
+    <NextThemesProvider {...props} attribute="class" defaultTheme="dark" enableSystem={false}>
+      <div className="min-h-screen bg-white text-zinc-900 dark:bg-white dark:bg-zinc-950 dark:text-zinc-100">
         {children}
       </div>
     </NextThemesProvider>
   );
 }
+
