@@ -65,7 +65,6 @@ export default function HeroSection() {
                 onClick={() => {
                   const el = document.getElementById("projects");
                   if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 64, behavior: "smooth" });
-                  history.replaceState(null, "", window.location.pathname);
                 }}
                 className="inline-flex items-center gap-2 bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-zinc-200 font-medium px-6 py-2.5 rounded-full text-sm transition-all hover:scale-[1.02] active:scale-[0.98] shadow-sm"
               >
@@ -77,7 +76,6 @@ export default function HeroSection() {
                 onClick={() => {
                   const el = document.getElementById("contact");
                   if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 64, behavior: "smooth" });
-                  history.replaceState(null, "", window.location.pathname);
                 }}
                 className="inline-flex items-center gap-1.5 border border-zinc-300 dark:border-zinc-700 bg-transparent dark:bg-zinc-900/50 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 px-6 py-2.5 rounded-full text-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
               >

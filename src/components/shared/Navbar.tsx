@@ -14,19 +14,34 @@ const Navbar = () => {
   useEffect(() => {
     setMounted(true);
 
-    const hash = window.location.hash.replace("#", "");
-    const pathSection = window.location.pathname.replace("/", "");
-    const targetId = hash || pathSection;
-    if (targetId && targetId !== "") {
+    const validSections = ["home", "experience", "projects", "skills", "education", "contact"];
+    const scrollFromLocation = (smooth = false) => {
+      const pathSection = window.location.pathname.split("/").filter(Boolean)[0];
+      const hashSection = window.location.hash.replace("#", "");
+      const sectionId = validSections.includes(pathSection)
+        ? pathSection
+        : validSections.includes(hashSection)
+          ? hashSection
+          : "home";
+
+      setActiveSection(sectionId);
+
       setTimeout(() => {
-        const el = document.getElementById(targetId);
-        if (el) {
-          const y = el.getBoundingClientRect().top + window.scrollY - 64;
-          window.scrollTo({ top: y, behavior: "smooth" });
-          history.replaceState(null, "", targetId === "home" ? "/" : `/#${targetId}`);
+        const el = document.getElementById(sectionId);
+        if (!el) return;
+        const y = el.getBoundingClientRect().top + window.scrollY - 64;
+        window.scrollTo({ top: y, behavior: smooth ? "smooth" : "auto" });
+        if (window.location.hash) {
+          history.replaceState(null, "", sectionId === "home" ? "/" : `/${sectionId}`);
         }
-      }, 100);
-    }
+      }, 50);
+    };
+
+    const handlePopState = () => scrollFromLocation(true);
+    scrollFromLocation();
+    window.addEventListener("popstate", handlePopState);
+
+    return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
   const navItems = useMemo(
@@ -42,14 +57,12 @@ const Navbar = () => {
 
   const scrollToSection = (sectionId: string) => {
     setMobileOpen(false);
-    setTimeout(() => {
-      const el = document.getElementById(sectionId);
-      if (!el) return;
-      const y = el.getBoundingClientRect().top + window.scrollY - 64;
-      window.scrollTo({ top: y, behavior: "smooth" });
-      const path = sectionId === "home" ? "/" : `/#${sectionId}`;
-      history.replaceState(null, "", path);
-    }, 10);
+    setActiveSection(sectionId);
+    history.pushState(null, "", sectionId === "home" ? "/" : `/${sectionId}`);
+    const el = document.getElementById(sectionId);
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - 64;
+    window.scrollTo({ top: y, behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -66,8 +79,7 @@ const Navbar = () => {
         ([entry]) => {
           if (entry.isIntersecting) {
             setActiveSection(id);
-            const path = id === "home" ? "/" : `/#${id}`;
-            history.replaceState(null, "", path);
+            history.replaceState(null, "", id === "home" ? "/" : `/${id}`);
           }
         },
         {
@@ -124,6 +136,7 @@ const Navbar = () => {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
+              aria-current={activeSection === item.id ? "page" : undefined}
               className={`text-sm transition-colors focus:outline-none ${
                 activeSection === item.id
                   ? "text-zinc-950 dark:text-zinc-100 font-semibold"
@@ -167,6 +180,7 @@ const Navbar = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
+                aria-current={activeSection === item.id ? "page" : undefined}
                 className={`text-sm py-2.5 text-left transition-colors focus:outline-none ${
                   activeSection === item.id
                     ? "text-zinc-950 dark:text-zinc-100 font-semibold"
