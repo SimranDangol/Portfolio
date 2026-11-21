@@ -8,7 +8,6 @@ export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
   try {
-    const db = await connectDB();
     const { fullName, email, message, subject } = await req.json();
 
     if (!fullName || !email || !message || !subject) {
@@ -19,13 +18,14 @@ export async function POST(req: NextRequest) {
     }
 
     let savedContact = null;
-    if (db) {
-      try {
+    try {
+      const db = await connectDB();
+      if (db) {
         const contact = new Contact({ fullName, email, message, subject });
         savedContact = await contact.save();
-      } catch (dbError) {
-        console.error("MongoDB save error:", dbError);
       }
+    } catch (dbError) {
+      console.error("MongoDB save error:", dbError);
     }
 
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
