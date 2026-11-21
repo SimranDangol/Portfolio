@@ -13,8 +13,8 @@ const skillGroups: SkillGroup[] = [
     items: [
       "LangGraph",
       "LangChain",
-      "Multi-Agent Architectures",
-      "RAG Pipelines",
+      "Multi-Agent Systems",
+      "RAG",
       "Pinecone",
       "Tool Calling",
       "Prompt Engineering",
@@ -32,6 +32,7 @@ const skillGroups: SkillGroup[] = [
       "WebSockets",
       "Tailwind CSS",
       "Redux Toolkit",
+      "TanStack Query",
     ],
   },
   {
@@ -46,15 +47,15 @@ const skillGroups: SkillGroup[] = [
     ],
   },
   {
-    category: "Soft Skills & Practices",
+    category: "Collaboration & Delivery",
     items: [
-      "End-to-End Ownership",
-      "Technical Communication",
-      "Product Mindset",
-      "Cross-Functional Teamwork",
-      "Agile & Scrum",
-      "Fast Prototyping",
-      "Code Reviews",
+      "Ownership",
+      "Communication",
+      "Teamwork",
+      "Problem Solving",
+      "Adaptability",
+      "Time Management",
+      "Agile",
     ],
   },
 ];
@@ -77,7 +78,7 @@ export default function SkillsSection() {
             Capabilities
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-50 mt-2">
-            Technical Stack & Practices
+            Technical Skills & Collaboration
           </h2>
         </motion.div>
 
