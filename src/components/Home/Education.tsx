@@ -58,7 +58,7 @@ export default function Education() {
                   {item.institution}
                 </p>
               </div>
-              <div className="flex flex-col items-end gap-1.5 shrink-0">
+              <div className="flex flex-col items-start sm:items-end gap-1.5 shrink-0">
                 <span className="font-mono text-xs text-zinc-800 dark:text-zinc-200 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-3 py-1 rounded-full font-medium">
                   {item.period}
                 </span>

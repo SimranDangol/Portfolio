@@ -121,7 +121,7 @@ const Navbar = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
         <button
           onClick={() => scrollToSection("home")}
           className="font-mono text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors focus:outline-none"
@@ -174,7 +174,7 @@ const Navbar = () => {
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 px-6 py-4">
+        <div className="lg:hidden max-h-[calc(100vh-3.5rem)] overflow-y-auto bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 px-4 sm:px-6 py-4">
           <div className="flex flex-col gap-1">
             {navItems.map((item) => (
               <button

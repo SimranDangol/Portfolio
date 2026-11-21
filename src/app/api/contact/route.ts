@@ -28,26 +28,36 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    if (process.env.EMAIL_USER && process.env.EMAIL_PASSWORD) {
-      try {
-        const { subject: mailSubject, body } = mail(fullName, email, message);
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
+      console.error("Email configuration is missing");
+      return NextResponse.json(
+        { error: "Email service is not configured" },
+        { status: 503 }
+      );
+    }
 
-        await transporter.sendMail({
-          from: process.env.EMAIL_USER,
-          to: process.env.EMAIL_USER,
-          subject: mailSubject,
-          text: body,
-        });
+    try {
+      const { subject: mailSubject, body } = mail(fullName, email, message);
 
-        await transporter.sendMail({
-          from: process.env.EMAIL_USER,
-          to: email,
-          subject: "Thanks for contacting me!",
-          text: `Hi ${fullName},\n\nThank you for reaching out! I have received your message:\n\n"${message}"\n\nI'll get back to you as soon as possible.\n\nBest regards,\nSimran Dangol`,
-        });
-      } catch (emailError) {
-        console.error("Email sending error:", emailError);
-      }
+      await transporter.sendMail({
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_USER,
+        subject: mailSubject,
+        text: body,
+      });
+
+      await transporter.sendMail({
+        from: process.env.EMAIL_USER,
+        to: email,
+        subject: "Thanks for contacting me!",
+        text: `Hi ${fullName},\n\nThank you for reaching out! I have received your message:\n\n"${message}"\n\nI'll get back to you as soon as possible.\n\nBest regards,\nSimran Dangol`,
+      });
+    } catch (emailError) {
+      console.error("Email sending error:", emailError);
+      return NextResponse.json(
+        { error: "Failed to send email" },
+        { status: 502 }
+      );
     }
 
     return NextResponse.json(

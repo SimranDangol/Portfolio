@@ -96,8 +96,8 @@ export default function SkillsSection() {
                   {group.category}
                 </span>
               </div>
-              <div className="md:col-span-9">
-                <p className="text-sm sm:text-[15px] text-zinc-700 dark:text-zinc-300 leading-relaxed font-sans">
+              <div className="md:col-span-9 min-w-0">
+                <p className="text-sm sm:text-[15px] text-zinc-700 dark:text-zinc-300 leading-relaxed font-sans break-words">
                   {group.items.map((item, i) => (
                     <span key={item}>
                       <span className="text-zinc-800 dark:text-zinc-200 hover:text-zinc-950 dark:hover:text-white transition-colors">

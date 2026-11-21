@@ -8,7 +8,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 pt-28 pb-14 sm:pt-32 sm:pb-16 px-6 sm:px-10"
+      className="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 pt-24 pb-12 sm:pt-32 sm:pb-16 px-4 sm:px-10"
     >
       <div className="max-w-5xl w-full mx-auto space-y-12">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -22,7 +22,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex items-center gap-2"
+              className="flex items-start sm:items-center gap-2"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse flex-shrink-0" />
               <span className="font-mono text-[11px] tracking-[0.16em] uppercase text-zinc-500 dark:text-zinc-400">
@@ -34,13 +34,13 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="text-3xl sm:text-5xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-bold tracking-tight text-zinc-900 dark:text-zinc-50 leading-[1.24]"
+              className="text-4xl sm:text-5xl md:text-5xl lg:text-[3.5rem] xl:text-[3.85rem] font-bold tracking-tight text-zinc-900 dark:text-zinc-50 leading-[1.12] sm:leading-[1.24]"
             >
-              <span className="inline-block whitespace-nowrap">I design and build</span>
+              <span className="inline-block">I design and build</span>
               <br />
-              <span className="inline-block whitespace-nowrap">web products,</span>
+              <span className="inline-block">web products,</span>
               <br />
-              <span className="inline-block whitespace-nowrap">
+              <span className="inline-block">
                 <span className="text-zinc-400 dark:text-zinc-500">from the</span> ground up.
               </span>
             </motion.h1>
